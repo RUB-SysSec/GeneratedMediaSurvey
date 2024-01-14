@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{% if language == "english" %}
+Instruction
+{% elif language == "german" %}
+Erklärung
+{% elif language == "chinese" %}
+解释
+{% endif %}
+{% endblock %}
+
+{% block header %}
+{% if language == "english" %}
+Instruction
+{% elif language == "german" %}
+Erklärung
+{% elif language == "chinese" %}
+解释
+{% endif %}
+{% endblock %}
+
+
+{% block body %}
+<div id="thank_you" class="col">
+    <div class="mb-3">
+        <p>
+            {% if language == "english" %}
+            On the following pages you will see or hear either different pictures, texts, or audio files.
+            Please make sure you have headphones or a speaker handy. This data is released for non-commercial use.
+            Some of these pictures, texts and audio files are computer generated.
+            {% elif language == "german" %}
+            Auf den folgenden Seiten werden Sie verschiedene Bilder, Texte oder Audiodateien sehen oder hören. Bitte
+            stellen Sie sicher, dass Sie Kopfhörer oder einen Lautsprecher griffbereit haben. Diese Daten sind für die
+            nicht-kommerzielle Nutzung freigegeben. Einige dieser Bilder, Texte und Audiodateien sind computergeneriert.
+            {% elif language == "chinese" %}
+            一下页面有不同的图片，文本或音频文件。务请将耳机或扩音机准备好。图片，文本与音频文件中有电脑所生成的文件。该数据发布用于非商业用途。
+            {% endif %}
+        </p>
+
+        <p>
+            {% if language == "english" %}
+            Your task is to decide if the picture, text, or audio is made by a human or computer generated.
+            Please decide for every image, text, or audio you will see, on a scale from definitely not-human (-3) to
+            definitely human (+3).
+            If you are unsure, use the option unsure (0).
+            Below you can see the scale you will see for every picture, text, or audio.
+            {% elif language == "german" %}
+            Ihre Aufgabe ist es, zu entscheiden, ob das Bild, der Text oder die Audioaufnahme von einem Menschen oder
+            einem Computer erzeugt wurde. Entscheiden Sie bitte für jedes Bild, jeden Text oder jedes Audio, das Sie
+            sehen, lesen oder hören, auf einer Skala von definitiv nicht von einem Menschen erzeugt (-3) bis definitiv
+            von einem Menschen erzeugt (+3). Wenn Sie unsicher sind, verwenden Sie die Option unsicher (0). Untenstehend
+            sehen Sie die Skala, die Sie für jedes Bild, jeden Text und jedes Audio sehen werden.
+            {% elif language == "chinese" %}
+            您的任务为选择显示的图片，文本或播放的音频文件为人造还是电脑所生成的数据。务请从“-3“（即一定不为人造的数据）到“+3“（即一定为人造的数据）的范围，对于每一个图片，文本及音频文件做选择。如您不确定，即选择“0“。如下所示，为每一个图片，文本及音频文件将显示此范围。
+            {% endif %}
+        </p>
+
+
+        {% if scale == "likert" %}
+        <div class="row">
+            {% set options_len = options|length %}
+            {% set ns = namespace(counter = - (options_len // 2)) %}
+
+            {% for label in options %}
+            <div class="option col-xl pt-1">
+                <input type="radio" autocomplete="off" class="btn-check option-input" data-choice="{{ns.counter}}"
+                    type="radio" name="likert_scale" id="option_{{ns.counter}}">
+                <label class="
+                                btn 
+                                btn-outline-secondary 
+                                option-label
+                                w-100
+                                h-100" for="option_{{ns.counter}}">
+                    <small>
+                        {% if ns.counter > 0 %}+{% endif %}{{ ns.counter }}
+                        {{ label }}
+                    </small>
+                </label>
+            </div>
+
+            {% set ns.counter = ns.counter + 1 %}
+
+            {% endfor %}
+        </div>
+        {% elif scale == "scale" %}
+        <div class="row">
+            <div class="col">
+                <input type="range" min="0" max="100" value="50" class="form-range" id="scale"
+                    onInput="$('#rangeval').html($(this).val())">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col ">
+                |
+                <p>
+                    Very unlikely
+                </p>
+            </div>
+            <div class="col text-center">
+                |
+                <p>
+                    Unsure
+                </p>
+            </div>
+            <div class="col text-end">
+                |
+                <p>
+                    Totally sure
+                </p>
+            </div>
+            <p>
+                <span id="rangeval">50
+                    <!-- Default value -->
+                </span>%
+            </p>
+        </div>
+        {% else %}
+        <!-- fail -->
+        {% endif %}
+
+
+        <div class="d-flex justify-content-end mt-3">
+            <button id="continue" type="button" class="btn btn-outline-success">
+                {% if language == "english" %}
+                Next
+                {% elif language == "german" %}
+                Weiter
+                {% elif language == "chinese" %}
+                继续
+                {% endif %}
+            </button>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='scripts/instructions.js') }}"></script>
+{% endblock %}

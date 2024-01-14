@@ -1,0 +1,68 @@
+{% extends 'base_experiment.html' %}
+
+{% block choices %}
+<div class="col">
+    {% if scale == "likert" %}
+        <div class="row">
+            {% set options_len = options|length %}
+            {% set ns = namespace(counter = - (options_len // 2)) %}
+
+            {% for label in options %}
+                <div class="option col-xl pt-1">
+                    <input type="radio" autocomplete="off" class="btn-check option-input" data-choice="{{ns.counter}}" type="radio"
+                        name="likert_scale" id="option_{{ns.counter}}">
+                    <label class="
+                        btn 
+                        btn-outline-secondary 
+                        option-label
+                        w-100
+                        h-100"
+                     for="option_{{ns.counter}}">
+                        <small>
+                            {% if ns.counter > 0 %}+{% endif %}{{ ns.counter }}
+                            {{ label }}
+                        </small>
+                    </label>
+                </div>
+
+                {% set ns.counter = ns.counter + 1 %}
+
+            {% endfor %}
+        </div>
+    {% elif scale == "scale" %}
+        <div class="row">
+            <div class="col">
+                <input type="range" min="0" max="100" value="50" class="form-range" id="scale"
+                    onInput="$('#rangeval').html($(this).val())">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col ">
+                |
+                <p>
+                    Very unlikely
+                </p>
+            </div>
+            <div class="col text-center">
+                |
+                <p>
+                    Unsure
+                </p>
+            </div>
+            <div class="col text-end">
+                |
+                <p>
+                    Totally sure
+                </p>
+            </div>
+            <p>
+                <span id="rangeval">50
+                    <!-- Default value -->
+                </span>%
+            </p>
+        </div>
+    {% else %}
+    <!-- fail -->
+    {% endif %}
+</div>
+{% endblock %}

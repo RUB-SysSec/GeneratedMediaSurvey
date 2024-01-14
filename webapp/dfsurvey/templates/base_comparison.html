@@ -1,0 +1,56 @@
+{% extends 'base_experiment.html' %}
+
+{% block choices %}
+<div class="row justify-content-left">
+    <div class="row">
+        <div class="col-lg option">
+            <input class="btn-check option-input" data-choice="left" type="radio" name="likert_scale" id="left"
+                autocomplete="off">
+            <label class="btn btn-outline-secondary w-100 h-100 option-label" for="left">
+                <div class="d-none d-lg-block">
+                    {% if language == "english" %}
+                    Left
+                    {% elif language == "german" %}
+                    Links
+                    {% elif language == "chinese" %}
+                    向左
+                    {% endif %}
+                </div>
+                <div class="d-lg-none">
+                    {% if language == "english" %}
+                    Upper
+                    {% elif language == "german" %}
+                    Oben
+                    {% elif language == "chinese" %}
+                    上
+                    {% endif %}
+                </div>
+            </label>
+        </div>
+        <div class="col-lg option">
+            <input class="btn-check option-input" data-choice="right" type="radio" name="likert_scale" id="right"
+                autocomplete="off">
+            <label class="btn btn-outline-secondary w-100 h-100 option-label" for="right">
+                <div class="d-none d-lg-block">
+                    {% if language == "english" %}
+                    Right
+                    {% elif language == "german" %}
+                    Rechts
+                    {% elif language == "chinese" %}
+                    对
+                    {% endif %}
+                </div>
+                <div class="d-lg-none">
+                    {% if language == "english" %}
+                    Lower
+                    {% elif language == "german" %}
+                    Unten
+                    {% elif language == "chinese" %}
+                    较低的
+                    {% endif %}
+                </div>
+            </label>
+        </div>
+    </div>
+</div>
+{% endblock %}

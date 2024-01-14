@@ -1,0 +1,13 @@
+version: "3.9"
+services:
+  web:
+    extends:
+      file: common-services.yml
+      service: webapp
+    environment:
+      - SECRET_KEY=development
+    ports:
+      - 8080:8080
+
+volumes:
+  data: {}

@@ -1,0 +1,58 @@
+[general]
+    n = 1
+
+[gender]
+    quota = [["Male", ".5"], ["Female", ".5"]]
+    remap = [["Non-binary", "Male"], ["Prefer not to disclose", "Male"]]
+
+[age]
+    quota = [
+        [
+            "18-29",
+            ".18",
+        ],
+        [
+            "30-39",
+            ".15",
+        ],
+        [
+            "40-49",
+            ".12",
+        ],
+        [
+            "50-59",
+            ".12",
+        ],
+        [
+            "60-69",
+            ".07",
+        ],
+        [
+            "70 or above",
+            ".03",
+        ],
+    ]
+
+[ethnicity]
+    quota = [
+        [
+            "White",
+            ".68",
+        ],
+        [
+            "African-American",
+            ".12",
+        ],
+        [
+            "Hispanic or Latino",
+            ".14",
+        ],
+        [
+            "Asian",
+            ".06",
+        ],
+    ]
+    remap = [["Other", "White"]]
+
+[demographics]
+    quota = [["low", ".08"], ["medium", ".42"], ["high", ".5"]]

@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Statistics
+{% endblock %}
+
+{% block header %}
+Statistics
+{% endblock %}
+
+
+{% block body %}
+<div id="stats_container" class="col">
+    <div id="language_stats" class="row shadow rounded p-3">
+        <div class="col">
+            {% for name in country_summary %}
+            {% set finished = country_summary[name]["summary"]["finished"] %}
+
+            <!-- {{name}} -->
+            <div id="country_stats_{{ name }}" class="mt-3">
+                <div class="row justify-center">
+                    <div class="col">
+                        <h3>{{name}}</h3>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <b>Total</b> {{ finished }}
+                    </div>
+                    <div class="col">
+                        <b>Completed</b> {{ "%.2f%%" | format((finished / 1_000) * 100) }}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quotas per category -->
+            <div id="category_container_{{name}}" class="row mt-3">
+                <div class="row mb-1">
+                    <div class="col">
+                        <b>Category</b>
+                    </div>
+                    <div class="col text-end">
+                        <b>Amount</b>
+                    </div>
+                    <div class="col text-end">
+                        <b>Needed</b>
+                    </div>
+                    <div class="col text-end">
+                        <b>Percentage Reached</b>
+                    </div>
+                </div>
+                {% for key, (amount, needed) in country_summary[name]["categories"].items() %}
+                <div class="row">
+                    <div class="col">
+                        <b>{{ key }}:</b>
+                    </div>
+                    <div class="col text-end">
+                        {{ amount }}
+                    </div>
+                    <div class="col text-end">
+                        {{ needed }}
+                    </div>
+                    <div class="col text-end {%if amount >= needed %}text-danger{% else %}text-success{% endif %}">
+                        {{ "%.1f%%" | format((amount / needed) * 100) }}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

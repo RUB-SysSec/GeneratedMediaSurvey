@@ -1,0 +1,519 @@
+[demographics]
+    [demographics.demographics]
+        description = "First, we would like to get to know you."
+
+        [demographics.demographics.questions.gender]
+            question = "What is your gender?"
+            question_type = "options"
+            options = ["Female", "Male", "Non-binary", "Prefer not to disclose"]
+
+        [demographics.demographics.questions.age]
+            question = "How old are you?"
+            question_type = "age"
+            options = [
+                "18-29",
+                "30-39",
+                "40-49",
+                "50-59",
+                "60-69",
+                "70 or above",
+            ]
+
+
+        [demographics.demographics.questions.education]
+            question = "What is your highest level of education obtained?"
+            question_type = "education"
+
+            low = ["No school leaving certificate", "Less than High School"]
+            medium = [
+                "High school diploma or equivalent",
+                "Occupationally specific vocational certificate / apprenticeship",
+            ]
+            high = [
+                "Associate Degree or equivalent",
+                "Bachelor's degree",
+                "Post-graduate certificates (e.g. teaching credentials)",
+                "Master's degree or equivalent",
+                "PhD/doctorate",
+            ]
+
+        [demographics.demographics.questions.ethnicity]
+            question = "What is your ethnicity?"
+            question_type = "options"
+            options = [
+                "White",
+                "African-American",
+                "Hispanic or Latino",
+                "Asian",
+                "Other",
+            ]
+
+[presurvey]
+    [presurvey.deepfakes_1]
+        description = "Now we would like to know more your impression on Deepfakes. Our goal is to get to know more about your understanding and attiude on this topic. This is in no way a test to quiz you on your knowledge."
+
+        [presurvey.deepfakes_1.questions.1]
+            question = "Do you know what deepfakes are?"
+            question_type = "likert"
+            options = "knowledge"
+
+[presurvey.deepfakes_2]
+    description = "Now we would like to know more your impression on Deepfakes. Our goal is to get to know more about your understanding and attiude on this topic. This is in no way a test to quiz you on your knowledge."
+
+    [presurvey.deepfakes_2.questions.1]
+        question = "Please describe in your own words what a deepfake is. You may answer in bullet points. If you don't know, answer: 'I don't know.'"
+        question_type = "textfield"
+
+[presurvey.deepfakes_3]
+    description = "Now we would like to know more your impression on Deepfakes. Our goal is to get to know more about your understanding and attiude on this topic. This is in no way a test to quiz you on your knowledge."
+
+    [presurvey.deepfakes_3.questions.1]
+        question = "How likely do you think you will assume that a deepfake is real?"
+        question_type = "likert"
+        options = "likelihood"
+
+    [presurvey.deepfakes_3.questions.2]
+        question = "This is an attention check please select {}?"
+        question_type = "attention"
+        options = "likelihood"
+
+
+[postsurvey]
+
+    [postsurvey.concern]
+        description = "Now we would like to know how you perceived the task of this survey. For example, if you think that you detected computer-generated content or what you based your rating on."
+
+        [postsurvey.concern.questions.1]
+            question = "How easy was it for you to seperate real from deepfake content?"
+            question_type = "likert"
+            options = "difficult"
+
+        [postsurvey.concern.questions.2]
+            question = "In your opinion, in how many cases did you choose the correct option?"
+            question_type = "scale"
+
+        [postsurvey.concern.questions.3]
+            question = "Please describe what you based your decision (if the content was real or a deepfake) on. For example: What did you pay attention to? What did you notice? You may answer in bullet points."
+            question_type = "textfield"
+
+
+[postsurvey.CRT]
+    description = "Below are several problems that vary in difficulty. Try to answer as many as you can."
+
+    [postsurvey.CRT.questions.1]
+        question = "A bat and a ball cost $1.10 in total. The bat costs $1.00 more than the ball. How much does the ball cost? ____cents."
+        question_type = "number"
+
+    [postsurvey.CRT.questions.2]
+        question = "If it takes 5 machines 5 minutes to make 5 widgets, how long would it take 100 machines to make 100 widgets? _____minutes."
+        question_type = "number"
+
+    [postsurvey.CRT.questions.3]
+        question = "In a lake, there is a patch of lily pads. Every day, the patch doubles in size. If it takes 48 days for the patch to cover the entire lake, how long would it take for the patch to cover half of the lake? _____days."
+        question_type = "number"
+
+[postsurvey.AHS]
+    description = "Please indicate how much you agree or disagree with the following statements."
+
+    [postsurvey.AHS.questions.1]
+        question = "Everything in the universe is somehow related to each other."
+        question_type = "likert"
+        options = "agreement-7"
+
+    [postsurvey.AHS.questions.2]
+        question = "Even a small change in any element of the universe can lead to significant alteration in other elements."
+        question_type = "likert"
+        options = "agreement-7"
+
+    [postsurvey.AHS.questions.3]
+        question = "Any phenomenon has numerous numbers of causes, although some of the causes are not known."
+        question_type = "likert"
+        options = "agreement-7"
+
+    [postsurvey.AHS.questions.4]
+        question = "It is more desirable to take the middle ground than go to extremes."
+        question_type = "likert"
+        options = "agreement-7"
+
+    [postsurvey.AHS.questions.5]
+        question = "It is more important to find a point of compromise than to debate who is right/wrong, when one's opinions conflict with other's opinions."
+        question_type = "likert"
+        options = "agreement-7"
+
+    [postsurvey.AHS.questions.6]
+        question = "We should avoid going to extremes."
+        question_type = "likert"
+        options = "agreement-7"
+
+    [postsurvey.AHS.questions.7]
+        question = "Every phenomenon in the world moves in predictable directions."
+        question_type = "likert"
+        options = "agreement-7"
+
+    [postsurvey.AHS.questions.8]
+        question = "A person who is currently living a successful life will continue to stay successful."
+        question_type = "likert"
+        options = "agreement-7"
+
+    [postsurvey.AHS.questions.9]
+        question = "Future events are predictable based on present situations."
+        question_type = "likert"
+        options = "agreement-7"
+
+    [postsurvey.AHS.questions.10]
+        question = "The whole, rather than its parts, should be considered in order to understand a phenomenon."
+        question_type = "likert"
+        options = "agreement-7"
+
+    [postsurvey.AHS.questions.11]
+        question = "It is more important to pay attention to the whole that its parts."
+        question_type = "likert"
+        options = "agreement-7"
+
+    [postsurvey.AHS.questions.12]
+        question = "It is more important to pay attention to the whole context rather than the details."
+        question_type = "likert"
+        options = "agreement-7"
+
+[postsurvey.GTS]
+    description = "Please indicate how much you agree or disagree with the following statements."
+
+    [postsurvey.GTS.questions.1]
+        question = "Most people are basically honest."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.GTS.questions.2]
+        question = "Most people are trustworthy."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.GTS.questions.3]
+        question = "Most people are basically good and kind."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.GTS.questions.4]
+        question = "Most people are trustful of others."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.GTS.questions.5]
+        question = "I am trustful."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.GTS.questions.6]
+        question = "Most people will respond in kind when they are trusted by others."
+        question_type = "likert"
+        options = "agreement"
+
+[postsurvey.NMLS_FC]
+    description = "The term “media” used in the following items, unless otherwise specified, refers to current digital technology platforms including but not limited to web sites, online forums, social networks, video sharing sites and virtual worlds in which anyone can share any digital content. Please indicate how you feel about your knowledge and skills for each of the following statements."
+
+    [postsurvey.NMLS_FC.questions.FC_1]
+        question = "I know how to use searching tools to get information needed in the media."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_FC.questions.FC_2]
+        question = "I catch up with the changes in the media."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_FC.questions.FC_3]
+        question = "I make use of various media environments to reach information."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_FC.questions.FC_4]
+        question = "I realize explicit and implicit media messages."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_FC.questions.FC_5]
+        question = "I notice media contents containing mobbing and violence."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_FC.questions.FC_6]
+        question = "I understand political, economical and social dimensions of media contents."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_FC.questions.FC_7]
+        question = "I perceive different opinions and thoughts in the media."
+        question_type = "likert"
+        options = "agreement"
+
+
+[postsurvey.NMLS_CC]
+    description = "The term “media” used in the following items, unless otherwise specified, refers to current digital technology platforms including but not limited to web sites, online forums, social networks, video sharing sites and virtual worlds in which anyone can share any digital content. Please indicate how you feel about your knowledge and skills for each of the following statements."
+
+    [postsurvey.NMLS_CC.questions.CC_1]
+        question = "I distinguish different functions of media (communication, entertainment, etc.)."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_CC.questions.CC_2]
+        question = "I determine whether or not media contents have commercial messages."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_CC.questions.CC_3]
+        question = "I classify media messages based on their producers, types, purposes and so on."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_CC.questions.CC_4]
+        question = "I compare news and information across different media environments."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_CC.questions.CC_5]
+        question = "I combine media messages with my own opinions."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_CC.questions.CC_6]
+        question = "I consider media rating symbols to choose which media contents to use."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_CC.questions.CC_7]
+        question = "I make decision about the accuracy of media messages."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_CC.questions.CC_8]
+        question = "I analyze positive and negative effects of media contents on individuals."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_CC.questions.CC_9]
+        question = "I evaluate media in terms of legal and ethical rules (copyright, human rights, etc.)."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_CC.questions.CC_10]
+        question = "I assess media in terms of credibility, reliability, objectivity and currency."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_CC.questions.CC_11]
+        question = "I fend against the risks and consequences caused by media contents."
+        question_type = "likert"
+        options = "agreement"
+
+[postsurvey.NMLS_FP]
+    description = "The term “media” used in the following items, unless otherwise specified, refers to current digital technology platforms including but not limited to web sites, online forums, social networks, video sharing sites and virtual worlds in which anyone can share any digital content. Please indicate how you feel about your knowledge and skills for each of the following statements."
+
+    [postsurvey.NMLS_FP.questions.FP_1]
+        question = "I create user accounts and profiles in media environments."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_FP.questions.FP_2]
+        question = "I use hardware necessary for developing media contents (text, image, video, etc.)."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_FP.questions.FP_3]
+        question = "I use software necessary for developing media contents (text, image, video, etc.)."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_FP.questions.FP_4]
+        question = "I use basic operating tools (button, hyperlinks, file transfer etc.) in the media."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_FP.questions.FP_5]
+        question = "I share digital media contents and messages on the Internet."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_FP.questions.FP_6]
+        question = "I make contribution or comments to media contents shared by others."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_FP.questions.FP_7]
+        question = "I rate or review media contents based on personal interests and liking."
+        question_type = "likert"
+        options = "agreement"
+
+[postsurvey.NMLS_CP]
+    description = "The term “media” used in the following items, unless otherwise specified, refers to current digital technology platforms including but not limited to web sites, online forums, social networks, video sharing sites and virtual worlds in which anyone can share any digital content. Please indicate how you feel about your knowledge and skills for each of the following statements."
+
+    [postsurvey.NMLS_CP.questions.CP_1]
+        question = "I influence others' opinions by participating to social media environments."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_CP.questions.CP_2]
+        question = "I make contribution to media by reviewing current matters from different perspectives (social, economical,ideological etc.)."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_CP.questions.CP_3]
+        question = "I collaborate and interact with diverse media users towards a common purpose."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_CP.questions.CP_4]
+        question = "I construct online identity consistent with real personal characteristics."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_CP.questions.CP_5]
+        question = "I make discussions and comments to inform or direct people in the media."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_CP.questions.CP_6]
+        question = "I design media contents that reflect critical thinking of certain matters."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_CP.questions.CP_7]
+        question = "I produce opposite or alternative media contents."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_CP.questions.CP_8]
+        question = "I produce media contents respectful to people's different ideas and private lives."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_CP.questions.CP_9]
+        question = "I create media contents that comply with legal and ethical rules."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_CP.questions.CP_10]
+        question = "I develop original visual and textual media contents (video clips, web page, etc.)"
+        question_type = "likert"
+        options = "agreement"
+
+[postsurvey.Ingelhardt]
+    description = "There is a lot of talk these days about what this country's (USA) goals should be for the next ten or fifteen years. In these questions are listed some of the goals that different people say should be given top priority."
+
+    [postsurvey.Ingelhardt.questions.1]
+        question = "Would you please say which of them you yourself consider to be most important in the long run?"
+        question_type = "options"
+        options = [
+            "Maintaining order in the nation",
+            "Giving people more say in important government decisions",
+            "Fighting rising prices",
+            "Protecting freedom of speech",
+        ]
+
+    [postsurvey.Ingelhardt.questions.2]
+        question = "And what would be your second choice?"
+        question_type = "options"
+        options = [
+            "Maintaining order in the nation",
+            "Giving people more say in important government decisions",
+            "Fighting rising prices",
+            "Protecting freedom of speech",
+        ]
+
+[postsurvey.Audio]
+    description = "In this question we want to assess how you listened to the audio file."
+
+    [postsurvey.Audio.conditional]
+        conditional_on = "SESS_MEDIA_CHOOSEN"
+        condition = "audio"
+
+
+    [postsurvey.Audio.questions.1]
+        question = "How did you listen to the audio?"
+        question_type = "options"
+        options = [
+            "I used headphones",
+            "I used the speaker of my smartphone",
+            "I used the speaker of my computer/laptop",
+            "I used an external speaker",
+            "None of the above",
+        ]
+
+
+[config]
+    [config.consider_as_one]
+        presurvey = [["deepfakes_1", "deepfakes_2", "deepfakes_3"]]
+        postsurvey = [["NMLS_FC", "NMLS_CC", "NMLS_FP", "NMLS_CP"]]
+
+
+[likert_scales]
+
+    [likert_scales.difficult]
+        scale_type = "centered"
+        options = [
+            "Very difficult",
+            "Difficult",
+            "Neutral",
+            "Easy",
+            "Very easy",
+        ]
+    [likert_scales.likelihood]
+        scale_type = "centered"
+        options = [
+            "Very unlikely",
+            "Unlikely",
+            "Neutral",
+            "Likely",
+            "Very likely",
+        ]
+
+    [likert_scales.agreement]
+        scale_type = "centered"
+        options = [
+            "Strongly disagree",
+            "Disagree",
+            "Neither agree or disagree",
+            "Agree",
+            "Strongly agree",
+        ]
+
+    [likert_scales.agreement-7]
+        scale_type = "centered"
+        options = [
+            "Strongly disagree",
+            "Disagree",
+            "Somewhat disagree",
+            "Neither agree or disagree",
+            "Somewhat agree",
+            "Agree",
+            "Strongly agree",
+        ]
+
+    [likert_scales.true-4]
+        scale_type = "ascending"
+        options = [
+            "Not at all true",
+            "Hardly true",
+            "Moderately true",
+            "Exactly true",
+        ]
+
+    [likert_scales.knowledge]
+        scale_type = "none"
+        options = [
+            "I've never heard of this",
+            "I've heard of this but I don't know what it is",
+            "I know what this is but I don't know how it works",
+            "I know how this works",
+            "I know very well how this works",
+        ]
+
+[experiment_scales]
+    options = [
+        "Definitely Non-Human",
+        "Very Probably Non-Human",
+        "Probably Non-Human",
+        "Unsure",
+        "Probably Human",
+        "Very Probably Human",
+        "Definitely Human",
+    ]

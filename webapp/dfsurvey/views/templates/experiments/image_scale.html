@@ -1,0 +1,25 @@
+{% extends 'base_scale.html' %}
+
+{% block title %}
+{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+{% block question %}
+{% if language == "english" %}
+This picture was taken by a human:
+{% elif language == "german" %}
+Dieses Bild wurde von einem Menschen geschossen:
+{% elif language == "chinese" %}
+此照片由人拍摄。
+{% endif %}
+{% endblock %}
+
+{% block media %}
+<div id="media" class="row">
+    <div class="col">
+        <img src="{{ url_for('static', filename=media) }}" class="img-fluid-max-size mx-auto d-block">
+    </div>
+</div>
+{% endblock %}

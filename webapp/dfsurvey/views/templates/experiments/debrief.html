@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block header %}
+
+{% endblock %}
+
+
+{% block body %}
+<div id="debrief" class="col">
+    <div id="audioContainer">
+        <h1>Audio</h1>
+
+        <h3>Real</h3>
+        <div id="media" class="row bg-success p-3" style="--bs-bg-opacity: .2;">
+        {% for media in samples['audio']['real'] %}
+                <div class="col-lg-4">
+                    <figure class="d-flex justify-content-center">
+                        <audio id="audioContainer" controls src="{{ url_for('static', filename=samples['audio']['real'][0]) }}">
+                            Your browser does not support the
+                            <code>audio</code> element.
+                        </audio>
+                    </figure>
+                </div>
+        {% endfor %}
+        </div>
+
+        <h3>Fake</h3>
+        <div id="media" class="row bg-danger p-3" style="--bs-bg-opacity: .2;">
+        {% for media in samples['audio']['fake'] %}
+                <div class="col-lg-4">
+                    <figure class="d-flex justify-content-center">
+                        <audio id="audioContainer" controls src="{{ url_for('static', filename=samples['audio']['real'][0]) }}">
+                            Your browser does not support the
+                            <code>audio</code> element.
+                        </audio>
+                    </figure>
+                </div>
+        {% endfor %}
+        </div>
+    </div>
+
+    <div id="imageContainer">
+        <h1>Images</h1>
+
+        <h3>Real</h3>
+        <div id="media" class="row bg-success p-3" style="--bs-bg-opacity: .2;">
+        {% for media in samples['image']['real'] %}
+            <div class="col-lg-4">
+                <img src="{{ url_for('static', filename=media) }}" class="img-fluid-max-size mx-auto d-block">
+            </div>
+        {% endfor %}
+        </div>
+
+        <h3>Fake</h3>
+        <div id="media" class="row bg-danger p-3" style="--bs-bg-opacity: .2;">
+        {% for media in samples['image']['fake'] %}
+            <div class="col-lg-4">
+                <img src="{{ url_for('static', filename=media) }}" class="img-fluid-max-size mx-auto d-block">
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+
+    <div id="textContainer">
+        <h1>Text</h1>
+
+        <h3>Real</h3>
+
+        <div id="media" class="row bg-success p-3" style="--bs-bg-opacity: .2;">
+        {% for media in samples['text']['real'] %}
+            <div class="col-lg-4">
+                <h4>{{ media["title"] }}</h4>
+                <p>
+                    {{ media["article"] }}
+                </p>
+            </div>
+        {% endfor %}
+        </div>
+
+        <h3>Fake</h3>
+
+        <div id="media" class="row bg-danger p-3" style="--bs-bg-opacity: .2;">
+        {% for media in samples['text']['fake'] %}
+            <div class="col-lg-4">
+                <h4>{{ media["title"] }}</h4>
+                <p>
+                    {{ media["article"] }}
+                </p>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

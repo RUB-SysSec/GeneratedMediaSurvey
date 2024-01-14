@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+You have been reset!
+{% endblock %}
+
+{% block header %}
+You have been reset!
+{% endblock %}
+
+
+{% block body %}
+<div id="thank_you" class="col">
+    <div class="mb-3">
+        <div class="alert alert-danger" role="alert">
+            This is a debug page and not part of the offical survey!
+        </div>
+
+        <p>
+            You have been reset for the follwing reason:
+        </p>
+
+        <div>
+            <b id="reason">{{reason}}</b>
+        </div>
+
+        <a id="finish" type="button" class="btn btn-outline-success mt-3" href="consent">
+            Start again.
+        </a>
+        </p>
+    </div>
+</div>
+{% endblock %}

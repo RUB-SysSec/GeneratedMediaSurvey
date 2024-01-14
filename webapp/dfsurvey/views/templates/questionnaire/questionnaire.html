@@ -1,0 +1,157 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+
+{% block body %}
+{% if progressbar %}
+<div class="progress mb-3">
+    <div class="progress-bar progress-bar-striped bg-success progress-bar-animated" role="progressbar"
+        style="width: {{progress}}%" aria-valuenow="{{ progress }}" aria-valuemin="0" aria-valuemax="100">
+        {{ progress }}%
+    </div>
+</div>
+{% endif %}
+
+<div id="questionnaire">
+    <div id="category" class="category">
+
+        {% if "description" in category %}
+        <p class="category-description">{{ category["description"] }}</p>
+        {% endif %}
+
+        {% for question in category["questions"].values() %}
+        {% set name = question["question"] %}
+        {% set question_id = question["question_id"] %}
+        {% set question_type = question["question_type"] %}
+        {% set is_likert = question_type == 'likert' or question_type == "attention" %}
+
+        <div id="question_{{ question_id }}" class="question p-3 shadow rounded mb-4" data-type="{{question_type}}"
+            data-question-id="{{question_id}}">
+            <p>{{ name }}</p>
+
+
+            {% if question_type == "options" %}
+            {% set options = question["options"] %}
+            {% elif is_likert %}
+            {% set options = likert_scales[question["options"]]["options"] %}
+            {% set scale_type = likert_scales[question["options"]]["scale_type"] %}
+            {% elif question_type == "education" %}
+            {% set options = question["low"] + question["medium"] + question["high"] %}
+            {% endif %}
+
+            <div id="question_{{ question_id }}_options" class="px-2 row">
+                {% if question_type == "textfield" %}
+                <textarea class="option form-control pr-3" data-question-id="{{question_id}}"
+                    data-question-type="{{ question_type }}" id="question_{{ question_id }}_textarea" rows=2></textarea>
+
+                {% elif question_type == "number" or question_type == "age" %}
+                <input type="number" class="option form-control" style="width: 100px" data-question-id="{{question_id}}"
+                    data-question-type="{{ question_type }}" id="question_{{ question_id }}_number">
+
+                {% elif question_type == "scale" %}
+                <div class="row">
+                    <div class="col">
+                        <input type="range" min="0" max="100" value="50" class="option form-range"
+                            data-question-id="{{question_id}}" data-question-type="{{ question_type }}"
+                            id="question_{{ question_id }}_scale" onInput="$('#rangeval').html($(this).val())">
+                    </div>
+                </div>
+                <div class="row">
+                    <p>
+                        <span id="rangeval">50
+                            <!-- Default value -->
+                        </span>%
+                    </p>
+                </div>
+                {% else %}
+
+                {% if scale_type == "centered" and is_likert %}
+                {% set ns = namespace(counter = - (options|length // 2)) %}
+                {% endif %}
+
+                {% for answer in options %}
+                {% set option_id = options_to_id[answer] %}
+
+                <div class="{% if is_likert %}col-xl{% endif %} pt-1 option">
+                    <input class="option btn-check option-input" type="radio" data-question-id="{{question_id}}"
+                        data-option-id="{{option_id}}" data-question-type="{{ question_type }}"
+                        name="question_{{ question_id }}" id="question_{{ question_id }}_{{option_id}}">
+                    <label class="
+                                    btn 
+                                    btn-outline-secondary 
+                                    option-label
+                                    w-100
+                                    h-100" for="question_{{ question_id }}_{{option_id}}">
+                        {% if is_likert %}
+                        <small>
+                            <div class="row">
+                                {% if is_likert %}
+                                <div class="col-auto pe-1">
+                                    {% if scale_type == "ascending" %}
+                                    {{ loop.index }}
+                                    {% elif scale_type == "descending" %}
+                                    {{ options|length - loop.index + 1 }}
+                                    {% elif scale_type == "centered" %}
+                                    {% if ns.counter > 0 %}+{% endif %}{{ ns.counter }}
+                                    {% set ns.counter = ns.counter + 1 %}
+                                    {% endif %}
+                                </div>
+                                {% endif %}
+                                <div class="col px-1">
+                                    {{ answer }}
+                                </div>
+                            </div>
+                        </small>
+                        {% else %}
+                        {{ answer }}
+                        {% endif %}
+                    </label>
+                </div>
+                {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+
+        <div class="alert alert-danger d-flex align-items-center d-none" role="alert" id="error">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img"
+                aria-label="Warning:">
+                <path
+                    d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+            </svg>
+            <div>
+                {% if language == "english" %}
+                Please answer all highlighted questions!
+                {% elif language == "german" %}
+                Bitte beantworten Sie alle markiertern Fragen!
+                {% elif language == "chinese" %}
+                务请回答标记问题。
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-end">
+            <button type="button" data-category="{{category_name}}" class="btn btn-outline-success mt-2 submit-category"
+                id="continue">
+                {% if language == "english" %}
+                Next
+                {% elif language == "german" %}
+                Weiter
+                {% elif language == "chinese" %}
+                继续
+                {% endif %}
+            </button>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='scripts/questionnaire.js') }}"></script>
+{% endblock %}

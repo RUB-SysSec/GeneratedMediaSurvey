@@ -1,0 +1,26 @@
+version: "3.9"
+services:
+  db:
+    extends:
+      file: common-services.yml
+      service: postgre
+    volumes:
+      - db_data_stage:/var/lib/postgresql/data
+
+  web:
+    extends:
+      file: common-services.yml
+      service: webapp
+    env_file:
+      - stage.env
+    environment:
+      - SURVEY_LANG=english
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+    links:
+      - db
+
+volumes:
+  db_data_stage: {}

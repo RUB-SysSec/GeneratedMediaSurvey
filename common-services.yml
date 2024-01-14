@@ -1,0 +1,23 @@
+version: '3.9'
+services:
+  webapp:
+    working_dir: /app
+    env_file:
+      - default.env
+    build: webapp
+    restart: always
+    command: sh -c "flask deploy build && gunicorn -w $$WORKER -b 0.0.0.0:8080 wsgi:app"
+    volumes:
+      - ./webapp/data:/app/data:ro
+      - ./webapp/questions:/app/questions:ro
+      - ./webapp/quotas:/app/quotas:ro
+      - ./webapp/image_data:/app/image_data:ro
+
+  postgre:
+    image: postgres:14
+    hostname: db
+    env_file:
+      - stage.env
+    restart: always
+    ports:
+      - 127.0.0.1:5432:5432

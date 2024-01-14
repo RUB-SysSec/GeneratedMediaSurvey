@@ -1,0 +1,46 @@
+[general]
+    n = 1_000
+
+[gender]
+    quota = [["Männlich", ".49"], ["Weiblich", ".51"]]
+    remap = [
+        [
+            "Nicht-binär",
+            "Männlich",
+        ],
+        [
+            "Ich möchte diese Frage nicht beantworten",
+            "Männlich",
+        ],
+    ]
+
+[age]
+    quota = [
+        [
+            "18-29",
+            ".16",
+        ],
+        [
+            "30-39",
+            ".14",
+        ],
+        [
+            "40-49",
+            ".17",
+        ],
+        [
+            "50-59",
+            ".20",
+        ],
+        [
+            "60-69",
+            ".15",
+        ],
+        [
+            "70 or above",
+            ".19",
+        ],
+    ]
+
+[demographics]
+    quota = [["low", ".14"], ["medium", ".55"], ["high", ".31"]]

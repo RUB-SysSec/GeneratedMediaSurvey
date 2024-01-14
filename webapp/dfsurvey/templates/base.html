@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+
+<head>
+    <!-- meta tags; do not remove -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- External -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='external/css/bootstrap.min.css') }}" />
+    <link href="{{ url_for('static', filename='external/css/all.min.css') }}" rel="stylesheet">
+
+    <!-- Ours -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+
+    <title>{% block title %}{% endblock %}</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-secondary sticky-top mb-2">
+        <div class="container-fluid">
+            <a class="navbar-brand disable-anchor d-md-none" href="#">Progress</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
+                    {% for i, label in survey_steps %}
+                    {% if i < current_step %} <li class="nav-item">
+                        <a class="nav-link disabled">{{label}}</a>
+                        </li>
+                        {% elif i > current_step %}
+                        <li class="nav-item">
+                            <a class="nav-link disable-anchor">{{label}}</a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link active disable-anchor">{{label}}</a>
+                        </li>
+                        {% endif %}
+                        {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-11 col-md-10">
+                <h1 id="heading" class="pb-2">{% block header %}{% endblock %}</h1>
+
+                {% block body %} {% endblock %}
+                <!-- External -->
+                <script src="{{ url_for('static', filename='external/js/bootstrap.min.js') }}"></script>
+                <script src="{{ url_for('static', filename='external/js/jquery.min.js') }}"></script>
+
+                <!-- Ours -->
+                <script src="{{ url_for('static', filename='scripts/api.js') }}"></script>
+
+                {% block scripts %} {% endblock %}
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

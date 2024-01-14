@@ -1,0 +1,39 @@
+{% extends 'base_comparison.html' %}
+
+{% block title %}
+Which news is real?
+{% endblock %}
+
+{% block question %}
+{% if language == "english" %}
+I would believe this text was written by a human:
+{% elif language == "german" %}
+Ich würde glauben, dass dieser Text von einem Menschen geschrieben wurde:
+{% elif language == "chinese" %}
+我相信这段文字是由一个人写的:
+{% endif %}
+{% endblock %}
+
+
+{% block media %}
+<div id="left-text" class="col-lg shadow-sm rounded bg-light mb-3">
+    <div id="media" class="row">
+        <div class="col">
+            <h4>{{ left["title"] }}</h4>
+            <p>
+                {{ left["article"] }}
+            </p>
+        </div>
+    </div>
+</div>
+<div id="right-text" class="col-lg shadow-sm rounded bg-light mb-3">
+    <div id="media" class="row">
+        <div class="col">
+            <h4>{{ right["title"] }}</h4>
+            <p>
+                {{ right["article"] }}
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

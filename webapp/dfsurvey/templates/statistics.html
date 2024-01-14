@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Statistics
+{% endblock %}
+
+{% block header %}
+Statistics
+{% endblock %}
+
+
+{% block body %}
+<div id="stats_container" class="col">
+    <div id="language_stats" class="row">
+        <div class="col">
+            {% for name in country_summary %}
+            {% set total = country_summary[name]["summary"]["total"] %}
+            {% set finished = country_summary[name]["summary"]["finished"] %}
+
+            <!-- {{name}} -->
+            <div id="country_stats_{{ name }}">
+                <div class="row justify-center">
+                    <div class="col">
+                        <h3>{{name}}</h3>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <b>Total</b> {{ total }}
+                    </div>
+                    <div class="col">
+                        <b>Finished</b> {{ finished }}
+                    </div>
+                    <div class="col">
+                        <b>CR</b> {{ "%.2f%%" | format((finished / total) * 100) }}
+                    </div>
+                    <div class="col">
+                        <b>Completed</b> {{ "%.2f%%" | format((finished / 1_000) * 100) }}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quotas per category -->
+            <div id="category_container_{{name}}" class="row pt-3">
+                <div class="row pb-1">
+                    <div class="col">
+                        <b>Category</b>
+                    </div>
+                    <div class="col">
+                        <b>Amount</b>
+                    </div>
+                    <div class="col">
+                        <b>Percentage from target participants (1000)</b>
+                    </div>
+                    <div class="col">
+                        <b>Percentage from current participants ({{finished}})</b>
+                    </div>
+                    <div class="col">
+                        <b>Needed</b>
+                    </div>
+                    <div class="col">
+                        <b>Percentage Reached</b>
+                    </div>
+                </div>
+                {% for key, (amount, needed) in country_summary[name]["categories"].items() %}
+                <div class="row">
+                    <div class="col">
+                        <b>{{ key }}:</b>
+                    </div>
+                    <div class="col">
+                        {{ amount }}
+                    </div>
+                    <div class="col">
+                        {{ "%.2f%%" | format((amount / 1_000) * 100) }}
+                    </div>
+                    <div class="col">
+                        {{ "%.2f%%" | format((amount / finished) * 100) }}
+                    </div>
+                    <div class="col">
+                        {{ needed }}
+                    </div>
+                    <div class="col">
+                        {{ "%.2f%%" | format((amount / needed) * 100) }}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

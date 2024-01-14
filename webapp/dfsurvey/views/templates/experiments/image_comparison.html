@@ -1,0 +1,27 @@
+{% extends 'base_comparison.html' %}
+
+{% block title %}
+Which face is real?
+{% endblock %}
+
+{% block question %}
+{% if language == "english" %}
+I would believe this iage was taken by a human:
+{% elif language == "german" %}
+Ich würde glauben, dass dieses Foto von einem Menschen aufgenommen wurde:
+{% elif language == "chinese" %}
+我相信这个图像是由人类拍摄的:
+{% endif %}
+{% endblock %}
+
+
+{% block media %}
+<div class="row justify-content-center">
+    <div class="col-lg">
+        <img src="{{ url_for('static', filename=left) }}" class="img-fluid-max-size" id="left-image">
+    </div>
+    <div class="col-lg">
+        <img src="{{ url_for('static', filename=right) }}" class="img-fluid-max-size" id="right-image">
+    </div>
+</div>
+{% endblock %}

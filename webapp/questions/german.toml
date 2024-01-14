@@ -1,0 +1,513 @@
+[demographics]
+    [demographics.demographics]
+        description = "Zuerst möchten wir einige demografische Informationen einholen."
+
+        [demographics.demographics.questions.gender]
+            question = "Was ist Ihr Geschlecht?"
+            question_type = "options"
+            options = [
+                "Weiblich",
+                "Männlich",
+                "Nicht-binär",
+                "Ich möchte diese Frage nicht beantworten",
+            ]
+
+        [demographics.demographics.questions.age]
+            question = "Wie alt sind Sie?"
+            question_type = "age"
+            options = [
+                "18-29",
+                "30-39",
+                "40-49",
+                "50-59",
+                "60-69",
+                "70 or above",
+            ]
+
+
+        [demographics.demographics.questions.education]
+            question = "Welcher ist Ihr höchster Bildungsabschluss?"
+            question_type = "education"
+
+            low = [
+                "Kein Schulabschluss",
+                "Hauptschulabschluss (Volksschulabschluss) oder gleichwertiger Abschluss",
+                "Realschulabschluss (Mittlere Reife) oder gleichwertiger Abschluss",
+            ]
+            medium = [
+                "Abitur",
+                "Fachhochschulreife / Allgemeine oder fachgebundene Hochschulreife",
+                "Beruflich-betriebliche Berufsausbildung / Lehre",
+
+            ]
+            high = [
+                "Abschluss einer Fach-, Meister-, Techniker-Schule oder Verwaltungs-, Fach Akademie",
+                "Bachelor",
+                "Diplom-Universitätsstudiengang oder Master (auch: Lehramt, Staatsprüfung, Magisterstudiengang, künstlerische und vergleichbare Studiengänge)",
+                "Promotion",
+            ]
+
+[presurvey]
+    [presurvey.deepfakes_1]
+        description = "Als nächstes würden wir gerne Ihre Wahrnehmung zu Deepfakes erfahren. Dies ist kein Test, es geht lediglich um Ihr persönliches Verständnis und Ihre Einstellungen zu diesem Thema."
+
+        [presurvey.deepfakes_1.questions.1]
+            question = "Wissen Sie was der Begriff Deepfakes meint?"
+            question_type = "likert"
+            options = "knowledge"
+
+[presurvey.deepfakes_2]
+    description = "Als nächstes würden wir gerne Ihre Wahrnehmung zu Deepfakes erfahren. Dies ist kein Test, es geht lediglich um Ihr persönliches Verständnis und Ihre Einstellungen zu diesem Thema."
+
+    [presurvey.deepfakes_2.questions.1]
+        question = "Bitte beschreiben Sie in Ihren eigenen Worten was Sie unter Deepfakes verstehen. Sie können gerne in Stichpunkten antworten. Wenn Sie den Begriff nicht kennen, antworten Sie einfach: Weiß ich nicht"
+        question_type = "textfield"
+
+[presurvey.deepfakes_3]
+    description = "Als nächstes würden wir gerne Ihre Wahrnehmung zu Deepfakes erfahren. Dies ist kein Test, es geht lediglich um Ihr persönliches Verständnis und Ihre Einstellungen zu diesem Thema."
+
+    [presurvey.deepfakes_3.questions.1]
+        question = "Für wie wahrscheinlich halten Sie es, dass Sie einen Deepfake als real einschätzen?"
+        question_type = "likert"
+        options = "likelihood"
+
+    [presurvey.deepfakes_3.questions.2]
+        question = "Dies ist ein Aufmerksamkeitstest, bitte wählen Sie {} aus."
+        question_type = "attention"
+        options = "likelihood"
+
+
+[postsurvey]
+
+    [postsurvey.concern]
+        description = "Nun würden wir gerne wissen, wie Sie die gestellte Aufgabe wahrgenommen haben. Zum Beispiel, ob Sie glauben, dass Sie computergenerierte Inhalte erkannt haben oder worauf Sie Ihre Bewertung stützen."
+
+        [postsurvey.concern.questions.1]
+            question = "Wie einfach haben Sie es empfunden Deepfakes und reale Inhalte zu unterscheiden?"
+            question_type = "likert"
+            options = "difficult"
+
+        [postsurvey.concern.questions.2]
+            question = "Ihrer Einschätzung nach, in wie vielen Fällen haben Sie richtig entschieden?"
+            question_type = "scale"
+
+        [postsurvey.concern.questions.3]
+            question = "Bitte beschreiben Sie auf welcher Grundlage Sie die Einschätzung zu den jeweiligen Inhalten getroffen haben (ob es sich um computergenerierte oder von Menschen erzeugte Inhalte handelt). Zum Beispiel: Worauf haben Sie besonders geachtet? Was haben Sie bemerkt? Sie können gerne in Stichpunkten antworten."
+            question_type = "textfield"
+
+
+[postsurvey.CRT]
+    description = "Nachfolgend finden Sie mehrere Aufgaben mit unterschiedlichem Schwierigkeitsgrad. Versuchen Sie, so viele wie möglich zu beantworten."
+
+    [postsurvey.CRT.questions.1]
+        question = "Ein Schläger und ein Ball kosten 1,10 Euro. Der Schläger kostet einen Euro mehr als der Ball. Wie viel kostet der Ball? ____Cent."
+        question_type = "number"
+
+    [postsurvey.CRT.questions.2]
+        question = "5 Maschinen benötigen für die Produktion von 5 Produkten 5 Minuten. Wie lange benötigen 100 Maschinen für die Produktion von 100 Produkten? _____Minuten."
+        question_type = "number"
+
+    [postsurvey.CRT.questions.3]
+        question = "Die Seerosen in einem Teich verdoppeln ihre Fläche jeden Tag. Wenn der See nach 48 Tagen komplett mit Seerosen bedeckt ist, wie lange hat es gebraucht, bis er zur Hälfte bedeckt war? _____Tage."
+        question_type = "number"
+
+[postsurvey.AHS]
+    description = "Bitte lesen Sie die nachfolgenden Aussagen sorgfältig durch und geben Sie an, wie sehr Sie der jeweiligen Aussage zustimmen."
+
+    [postsurvey.AHS.questions.1]
+        question = "Alles im Universum ist irgendwie miteinander verbunden. "
+        question_type = "likert"
+        options = "agreement-7"
+
+    [postsurvey.AHS.questions.2]
+        question = "Selbst eine kleine Veränderung in einem (beliebigen) Element des Universums kann zu erheblichen Veränderungen in anderen Elementen führen."
+        question_type = "likert"
+        options = "agreement-7"
+
+    [postsurvey.AHS.questions.3]
+        question = "Jedes Phänomen hat eine Vielzahl von Ursachen, auch wenn einige von ihnen unbekannt sind."
+        question_type = "likert"
+        options = "agreement-7"
+
+    [postsurvey.AHS.questions.4]
+        question = "Es ist besser einen Mittelweg zu finden, als in die Extreme zu gehen."
+        question_type = "likert"
+        options = "agreement-7"
+
+    [postsurvey.AHS.questions.5]
+        question = "Wenn die eigene Meinung mit der Meinung anderer kollidiert, ist es wichtiger, einen Kompromiss zu finden, als darüber zu debattieren, wer Recht und wer Unrecht hat."
+        question_type = "likert"
+        options = "agreement-7"
+
+    [postsurvey.AHS.questions.6]
+        question = "Wir sollten es vermeiden, in Extreme zu verfallen."
+        question_type = "likert"
+        options = "agreement-7"
+
+    [postsurvey.AHS.questions.7]
+        question = "Jedes Phänomen in der Welt bewegt sich in vorhersehbare Richtungen."
+        question_type = "likert"
+        options = "agreement-7"
+
+    [postsurvey.AHS.questions.8]
+        question = "Eine Person, die derzeit ein erfolgreiches Leben führt, wird auch weiterhin erfolgreich bleiben."
+        question_type = "likert"
+        options = "agreement-7"
+
+    [postsurvey.AHS.questions.9]
+        question = "Zukünftige Ereignisse sind auf Grundlage der gegenwärtigen Situation vorhersehbar."
+        question_type = "likert"
+        options = "agreement-7"
+
+    [postsurvey.AHS.questions.10]
+        question = "Um ein Phänomen zu verstehen, sollte das Ganze und nicht (nur) seine Teile betrachtet werden."
+        question_type = "likert"
+        options = "agreement-7"
+
+    [postsurvey.AHS.questions.11]
+        question = "Es ist wichtiger, auf das Ganze zu achten als auf seine Teile."
+        question_type = "likert"
+        options = "agreement-7"
+
+    [postsurvey.AHS.questions.12]
+        question = "Es ist wichtiger, auf den Gesamtzusammenhang zu achten als auf die Details."
+        question_type = "likert"
+        options = "agreement-7"
+
+[postsurvey.GTS]
+    description = "Bitte lesen Sie die folgenden Aussagen sorgfältig durch und geben Sie an, wie sehr Sie der jeweiligen Aussage zustimmen."
+
+    [postsurvey.GTS.questions.1]
+        question = "Die meisten Menschen sind grundsätzlich ehrlich."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.GTS.questions.2]
+        question = "Die meisten Menschen sind vertrauenswürdig."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.GTS.questions.3]
+        question = "Die meisten Menschen sind grundsätzlich gut und entgegenkommend."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.GTS.questions.4]
+        question = "Die meisten Menschen sind anderen gegenüber vertrauenswürdig."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.GTS.questions.5]
+        question = "Ich bin vertrauenswürdig."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.GTS.questions.6]
+        question = "Die meisten Menschen werden freundlich reagieren, wenn sie das Vertrauen anderer genießen."
+        question_type = "likert"
+        options = "agreement"
+
+[postsurvey.NMLS_FC]
+    description = "Der in den folgenden Aussagen verwendete Begriff Medien bezieht sich, sofern nicht anders angegeben, auf aktuelle digitale Technologieplattformen, einschließlich, aber nicht beschränkt auf Webseiten, Online-Foren, soziale Netzwerke, Video-Sharing-Seitem und virtuelle Welten, in denen jede*r beliebige digitale Inhalte teilen kann. Bitte geben Sie für jede der folgenden Aussagen an, wie Sie Ihre Kenntnisse und Fähigkeiten diesbezüglich einschätzen."
+
+    [postsurvey.NMLS_FC.questions.FC_1]
+        question = "Ich weiß, wie man Suchwerkzeuge einsetzt um benötigte Informationen in den Medien zu erhalten."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_FC.questions.FC_2]
+        question = "Ich informiere mich über die Veränderungen in den Medien."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_FC.questions.FC_3]
+        question = "Ich nutze verschiedene Medien, um an Informationen zu gelangen."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_FC.questions.FC_4]
+        question = "Ich erkenne explizite und implizite Medienbotschaften."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_FC.questions.FC_5]
+        question = "Ich bemerke, wenn Medieninhalte Mobbing und Gewalt beinhalten."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_FC.questions.FC_6]
+        question = "Ich verstehe die politische, wirtschaftliche und soziale Dimension von Medieninhalten."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_FC.questions.FC_7]
+        question = "Ich nehme unterschiedliche Meinungen und Gedanken in den Medien wahr."
+        question_type = "likert"
+        options = "agreement"
+
+
+[postsurvey.NMLS_CC]
+    description = "Der in den folgenden Aussagen verwendete Begriff Medien bezieht sich, sofern nicht anders angegeben, auf aktuelle digitale Technologieplattformen, einschließlich, aber nicht beschränkt auf Webseiten, Online-Foren, soziale Netzwerke, Video-Sharing-Seitem und virtuelle Welten, in denen jede*r beliebige digitale Inhalte teilen kann. Bitte geben Sie für jede der folgenden Aussagen an, wie Sie Ihre Kenntnisse und Fähigkeiten diesbezüglich einschätzen."
+
+    [postsurvey.NMLS_CC.questions.CC_1]
+        question = "Ich unterscheide verschiedene Funktionen von Medien (Kommunikation, Unterhaltung usw.)."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_CC.questions.CC_2]
+        question = "Ich kann beurteilen, ob Medieninhalte kommerzielle Botschaften enthalten oder nicht."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_CC.questions.CC_3]
+        question = "Ich kann Medienbotschaften auf der Grundlage ihrer Produzenten, ihrer Art, ihres Zwecks und so weiter einstufen."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_CC.questions.CC_4]
+        question = "Ich vergleiche Nachrichten und Informationen in verschiedenen Medien."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_CC.questions.CC_5]
+        question = "Ich kombiniere Botschaften in den Medien  mit meiner eigenen Meinung. "
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_CC.questions.CC_6]
+        question = "Ich berücksichtige unabhängige Bewertungen , um zu entscheiden, welche Medieninhalte ich nutzen möchte."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_CC.questions.CC_7]
+        question = "Ich treffe Entscheidungen über den Wahrheitsgehalt von Medienbotschaften."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_CC.questions.CC_8]
+        question = "Ich analysiere die positiven und negativen Auswirkungen von Medieninhalten auf den Einzelnen."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_CC.questions.CC_9]
+        question = "Ich bewerte Medien im Hinblick auf rechtliche und ethische Regeln (Urheberrecht, Menschenrechte usw.)."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_CC.questions.CC_10]
+        question = "Ich bewerte Medien im Hinblick auf Glaubwürdigkeit, Zuverlässigkeit, Objektivität und Aktualität."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_CC.questions.CC_11]
+        question = "Ich wehre mich gegen die Risiken und Folgen, die durch Medieninhalte verursacht werden."
+        question_type = "likert"
+        options = "agreement"
+
+[postsurvey.NMLS_FP]
+    description = "Der in den folgenden Aussagen verwendete Begriff Medien bezieht sich, sofern nicht anders angegeben, auf aktuelle digitale Technologieplattformen, einschließlich, aber nicht beschränkt auf Webseiten, Online-Foren, soziale Netzwerke, Video-Sharing-Seitem und virtuelle Welten, in denen jede*r beliebige digitale Inhalte teilen kann. Bitte geben Sie für jede der folgenden Aussagen an, wie Sie Ihre Kenntnisse und Fähigkeiten diesbezüglich einschätzen."
+
+    [postsurvey.NMLS_FP.questions.FP_1]
+        question = "Ich erstelle Benutzerkonten und Profile um Medieninhalte zu konsumieren.  "
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_FP.questions.FP_2]
+        question = "Ich verwende Hardware, die für die Entwicklung von Medieninhalten (Text, Bild, Video usw.) erforderlich ist."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_FP.questions.FP_3]
+        question = "Ich verwende Software, die für die Entwicklung von Medieninhalten (Text, Bild, Video usw.) erforderlich ist."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_FP.questions.FP_4]
+        question = "Ich verwende grundlegende Hilfsmittel (Schaltflächen, Hyperlinks, Dateiübertragung usw.) in Medien/Medieninhalten."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_FP.questions.FP_5]
+        question = "Ich teile digitale Medieninhalte und Nachrichten im Internet."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_FP.questions.FP_6]
+        question = "Ich schreibe Beiträge oder Kommentare zu Medieninhalten, die andere geteilt haben."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_FP.questions.FP_7]
+        question = "Ich bewerte oder überprüfe Medieninhalte auf der Grundlage meiner persönlichen Interessen und Vorlieben."
+        question_type = "likert"
+        options = "agreement"
+
+[postsurvey.NMLS_CP]
+    description = "Der in den folgenden Aussagen verwendete Begriff Medien bezieht sich, sofern nicht anders angegeben, auf aktuelle digitale Technologieplattformen, einschließlich, aber nicht beschränkt auf Webseiten, Online-Foren, soziale Netzwerke, Video-Sharing-Seitem und virtuelle Welten, in denen jede*r beliebige digitale Inhalte teilen kann. Bitte geben Sie für jede der folgenden Aussagen an, wie Sie Ihre Kenntnisse und Fähigkeiten diesbezüglich einschätzen."
+
+    [postsurvey.NMLS_CP.questions.CP_1]
+        question = "Ich beeinflusse die Meinung anderer, indem ich mich in sozialen Medien beteilige."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_CP.questions.CP_2]
+        question = "Ich leiste einen Beitrag zu Medieninhalten, indem ich aktuelle Themen aus verschiedenen Perspektiven (sozial, wirtschaftlich, ideologisch usw.) beleuchte."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_CP.questions.CP_3]
+        question = "Ich kollaboriere und interagiere mit verschiedenen Mediennutzern für ein gemeinsames Ziel."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_CP.questions.CP_4]
+        question = "Ich konstruiere eine Online-Identität, die mit meinen persönlichen Merkmalen übereinstimmt."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_CP.questions.CP_5]
+        question = "Ich führe Diskussionen und schreibe  Kommentare in den Medien (z.B. auf Facebook oder Nachrichtenwebseiten) , um Menschen zu informieren oder zu beeinflussen."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_CP.questions.CP_6]
+        question = "Ich gestalte Medieninhalte, die eine kritische Auseinandersetzung mit bestimmten Themen zeigen."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_CP.questions.CP_7]
+        question = "Ich produziere gegenteilige oder alternative Medieninhalte."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_CP.questions.CP_8]
+        question = "Ich produziere Medieninhalte, die die unterschiedlichen Vorstellungen und das Privatleben der Menschen respektieren."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_CP.questions.CP_9]
+        question = "Ich erstelle Medieninhalte, die den rechtlichen und ethischen Regeln entsprechen."
+        question_type = "likert"
+        options = "agreement"
+
+    [postsurvey.NMLS_CP.questions.CP_10]
+        question = "Ich entwickle eigene  visuelle und textliche Medieninhalte (Videoclips, Webseiten, etc.)."
+        question_type = "likert"
+        options = "agreement"
+
+[postsurvey.Ingelhardt]
+    description = "Auch in der Politik kann man nicht alles auf einmal haben. Auf dieser Liste finden Sie einige Ziele, die man in der Politik verfolgen kann. "
+
+    [postsurvey.Ingelhardt.questions.1]
+        question = "Wenn Sie zwischen diesen verschiedenen Zielen wählen müssten, welches Ziel erschiene Ihnen persönlich am wichtigsten?"
+        question_type = "options"
+        options = [
+            "Aufrechterhaltung von Ruhe und Ordnung in diesem Lande (Deutschland)",
+            "Mehr Einfluss der Bürger*innen auf die Entscheidungen der Regierung",
+            "Kampf gegen steigende Preise",
+            "Schutz des Rechts auf freie Meinungsäußerung",
+        ]
+
+    [postsurvey.Ingelhardt.questions.2]
+        question = "Und welches Ziel erscheint Ihnen am zweitwichtigsten? "
+        question_type = "options"
+        options = [
+            "Aufrechterhaltung von Ruhe und Ordnung in diesem Lande (Deutschland)",
+            "Mehr Einfluss der Bürger*innen auf die Entscheidungen der Regierung",
+            "Kampf gegen steigende Preise",
+            "Schutz des Rechts auf freie Meinungsäußerung",
+        ]
+
+[postsurvey.Audio]
+    description = "Mit dieser Frage möchten wir erfahren, wie Sie die Audiodatei angehört haben."
+
+    [postsurvey.Audio.conditional]
+        conditional_on = "SESS_MEDIA_CHOOSEN"
+        condition = "audio"
+
+
+    [postsurvey.Audio.questions.1]
+        question = "Wie haben Sie die Audiodatei angehört?"
+        question_type = "options"
+        options = [
+            "Mit Kopfhörern",
+            "Mit dem Lautsprecher meines Smartphones",
+            "Mit dem Lautsprecher meines Computers/Laptops",
+            "Mit einem externen Lautsprecher",
+            "Mit keinem der genannten Geräte ",
+        ]
+
+
+[config]
+    [config.consider_as_one]
+        presurvey = [["deepfakes_1", "deepfakes_2", "deepfakes_3"]]
+        postsurvey = [["NMLS_FC", "NMLS_CC", "NMLS_FP", "NMLS_CP"]]
+
+
+[likert_scales]
+
+    [likert_scales.difficult]
+        scale_type = "centered"
+        options = [
+            "Sehr schwierig",
+            "Schwierig",
+            "Neutral",
+            "Einfach",
+            "Sehr einfach",
+        ]
+    [likert_scales.likelihood]
+        scale_type = "centered"
+        options = [
+            "Sehr unwahrscheinlich",
+            "Unwahrscheinlich",
+            "Neutral",
+            "Wahrscheinlich",
+            "Sehr wahrscheinlich",
+        ]
+
+    [likert_scales.agreement]
+        scale_type = "centered"
+        options = [
+            "Stimme überhaupt nicht zu",
+            "Stimme nicht zu",
+            "Stimme weder zu noch lehne ich ab",
+            "Stimme zu",
+            "Stimme voll und ganz zu",
+        ]
+
+    [likert_scales.agreement-7]
+        scale_type = "centered"
+        options = [
+            "Stimme überhaupt nicht zu",
+            "Stimme nicht zu",
+            "Stimme wenig zu",
+            "Stimme weder zu noch lehne ich ab",
+            "Stimme eher zu",
+            "Stimme zu",
+            "Stimme voll und ganz zu",
+        ]
+
+    [likert_scales.true-4]
+        scale_type = "ascending"
+        options = ["Stimmt nicht", "Stimmt kaum", "Stimmt eher", "Stimmt genau"]
+
+    [likert_scales.knowledge]
+        scale_type = "none"
+        options = [
+            "Ich habe noch nie davon gehört",
+            "Ich habe davon gehört, weiß aber nicht was das ist",
+            "Ich weiß was das ist, aber nicht wie es funktioniert",
+            "Ich weiß, wie das funktioniert",
+            "Ich weiß sehr genau wie das funktioniert",
+        ]
+
+[experiment_scales]
+    options = [
+        "Definitiv NICHT von einem Menschen ",
+        "Höchstwahrscheinlich NICHT von einem Menschen",
+        "Wahrscheinlich NICHT von einem Menschen",
+        "Unsicher",
+        "Wahrscheinlich von einem Menschen",
+        "Höchstwahrscheinlich von einem Menschen",
+        "Definitiv von einem Menschen",
+    ]

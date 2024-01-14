@@ -1,0 +1,34 @@
+{% extends 'base_comparison.html' %}
+
+{% block title %}
+Which audio is real?
+{% endblock %}
+
+{% block question %}
+{% if language == "english" %}
+I would believe this audio was recorded by a human:
+{% elif language == "german" %}
+Ich würde glauben, dass diese Aufnahme von einem Menschen stammt:
+{% elif language == "chinese" %}
+我相信这段音频是由人类录制的:
+{% endif %}
+{% endblock %}
+
+{% block media %}
+<div class="col-lg">
+    <figure class="d-flex justify-content-center">
+        <audio controls src="{{ url_for('static', filename=left) }}" class="mx-auto d-block" id="left-audio">
+            Your browser does not support the
+            <code>audio</code> element.
+        </audio>
+    </figure>
+</div>
+<div class="col-lg">
+    <figure class="d-flex justify-content-center">
+        <audio controls src="{{ url_for('static', filename=right) }}" class="mx-auto d-block" id="right-audio">
+            Your browser does not support the
+            <code>audio</code> element.
+        </audio>
+    </figure>
+</div>
+{% endblock %}

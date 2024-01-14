@@ -1,0 +1,29 @@
+{% extends 'base_scale.html' %}
+
+{% block title %}
+Rate text
+{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+{% block question %}
+{% if language == "english" %}
+This text is written by a human:
+{% elif language == "german" %}
+Dieser Text wurde von einem Menschen geschrieben:
+{% elif language == "chinese" %}
+此文本由人写作。
+{% endif %}
+{% endblock %}
+
+{% block media %}
+<div id="media" class="row">
+    <div class="col">
+        <h4>{{ media["title"] }}</h4>
+        <p>
+            {{ media["article"] }}
+        </p>
+    </div>
+</div>
+{% endblock %}

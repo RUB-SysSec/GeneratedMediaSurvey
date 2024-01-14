@@ -1,0 +1,444 @@
+[demographics]
+  [demographics.demographics]
+    description = "我们首先想采集若干人口统计信息。"
+
+    [demographics.demographics.questions.gender]
+      question = "您的性别是什么？"
+      question_type = "options"
+      options = ["女", "男", "非二元性别", "我不愿回答此问题"]
+
+    [demographics.demographics.questions.age]
+      question = "您的年龄多大？"
+      question_type = "age"
+      options = ["18-24", "25-39", "40-54", "55+"]
+
+
+    [demographics.demographics.questions.education]
+      question = "您的最高学历是什么？"
+      question_type = "education"
+
+      low = ["无学校毕业证书 ", "小学教育学历证书", "初中教育学历证书"]
+      medium = ["职业高中", "高中教育学历证书", "专业技术资格证书"]
+      high = ["高等教育文憑", "学士学位", "碩士學位  / 學位後文憑", "博士學位"]
+
+[presurvey]
+  [presurvey.deepfakes_1]
+    description = "接下来，我们想探究您对于深伪技术的感知。此不为测试，目标仅为您对于此题目的理解与看法。"
+
+    [presurvey.deepfakes_1.questions.1]
+      question = "您是否知道'深伪技术'有何意思？"
+      question_type = "likert"
+      options = "knowledge"
+
+[presurvey.deepfakes_2]
+  description = "接下来，我们想探究您对于深伪技术的感知。此不为测试，目标仅为您对于此题目的理解与看法。"
+
+  [presurvey.deepfakes_2.questions.1]
+    question = "请以自己的语言描述您对于深伪技术的理解。您可以用关键词答案。如不知此词汇的意思，即回答'不知道'。"
+    question_type = "textfield"
+
+[presurvey.deepfakes_3]
+  description = "接下来，我们想探究您对于深伪技术的感知。此不为测试，目标仅为您对于此题目的理解与看法。"
+
+  [presurvey.deepfakes_3.questions.1]
+    question = "您认为自己将一个深伪技术的作品以为真实的作品的可能性如何？"
+    question_type = "likert"
+    options = "likelihood"
+
+  [presurvey.deepfakes_3.questions.2]
+    question = "这是一个测试，务请点击 {}。"
+    question_type = "attention"
+    options = "likelihood"
+
+
+[postsurvey]
+
+  [postsurvey.concern]
+    description = "现在，我们想知您如何感知此任务。比如，您觉得自己是否辨认出了为电脑所生成的内容，自己的评估基于何许方面。"
+
+    [postsurvey.concern.questions.1]
+      question = "您觉得深伪技术与真实的内容之辨认的简单程度多高？"
+      question_type = "likert"
+      options = "difficult"
+
+    [postsurvey.concern.questions.2]
+      question = "您评估自己多次正确地辨认到了如前所显示的内容？"
+      question_type = "scale"
+
+    [postsurvey.concern.questions.3]
+      question = "务请解释您基于何许方面评估各项内容（即内容为人还是为电脑所生成）。比如，您尤其注意何许方面？您发觉到了何等事情？您可以用关键词答案。"
+      question_type = "textfield"
+
+
+[postsurvey.CRT]
+  description = "下面有若干难度不同的任务。"
+
+  [postsurvey.CRT.questions.1]
+    question = "球拍与球一共一欧元十毛。球拍价格贵于球一欧元。球的价格多少钱？____毛"
+    question_type = "number"
+
+  [postsurvey.CRT.questions.2]
+    question = "五台机器需要五分钟产生五个产品。一百机器需要多久产生一百产品？_____分钟"
+    question_type = "number"
+
+  [postsurvey.CRT.questions.3]
+    question = "一个池塘中的睡莲数量天天加倍。倘若四十八天后睡莲覆盖全部的水面，睡莲覆盖一半的水面即需要多久？ _____天"
+    question_type = "number"
+
+[postsurvey.AHS]
+  description = "务请仔细阅读如下陈述并注明您在何种程度上同意各个陈述的内容。"
+
+  [postsurvey.AHS.questions.1]
+    question = "宇宙中的一切都以某种形式有互相连接。"
+    question_type = "likert"
+    options = "agreement-7"
+
+  [postsurvey.AHS.questions.2]
+    question = "甚至(任何随机的)一个元素中的小变化具有在其他元素中引起极端变化的可能性。"
+    question_type = "likert"
+    options = "agreement-7"
+
+  [postsurvey.AHS.questions.3]
+    question = "每一种现象都有多样的原因，尽管其中有未知的。"
+    question_type = "likert"
+    options = "agreement-7"
+
+  [postsurvey.AHS.questions.4]
+    question = "走极端不如找到一种折中的方法。"
+    question_type = "likert"
+    options = "agreement-7"
+
+  [postsurvey.AHS.questions.5]
+    question = "如自己与别人的观点彼此冲撞，评论是非曲直即不如想出一种折中办法如此要紧。"
+    question_type = "likert"
+    options = "agreement-7"
+
+  [postsurvey.AHS.questions.6]
+    question = "应该避免走极端。"
+    question_type = "likert"
+    options = "agreement-7"
+
+  [postsurvey.AHS.questions.7]
+    question = "世界上每一个现象朝着可计算的方向发展。"
+    question_type = "likert"
+    options = "agreement-7"
+
+  [postsurvey.AHS.questions.8]
+    question = "现在生活中成功的人，将来仍将成功。"
+    question_type = "likert"
+    options = "agreement-7"
+
+  [postsurvey.AHS.questions.9]
+    question = "未来事件基于现在情况可预测。"
+    question_type = "likert"
+    options = "agreement-7"
+
+  [postsurvey.AHS.questions.10]
+    question = "为掌握到某一种现象，应该审议每个方面作为一个整体，而不（只）看某些部分。"
+    question_type = "likert"
+    options = "agreement-7"
+
+  [postsurvey.AHS.questions.11]
+    question = "考虑整体比考虑其某些部分更要紧。"
+    question_type = "likert"
+    options = "agreement-7"
+
+  [postsurvey.AHS.questions.12]
+    question = "考虑总体背景比考虑细节更要紧。"
+    question_type = "likert"
+    options = "agreement-7"
+
+[postsurvey.GTS]
+  description = "务请仔细阅读如下陈述并注明您在何种程度上同意各个陈述的内容。"
+
+  [postsurvey.GTS.questions.1]
+    question = "大多数人本质上是老实的。"
+    question_type = "likert"
+    options = "agreement"
+
+  [postsurvey.GTS.questions.2]
+    question = "大多数人本质上是可信的。"
+    question_type = "likert"
+    options = "agreement"
+
+  [postsurvey.GTS.questions.3]
+    question = "大多数人本质上善良殷勤。"
+    question_type = "likert"
+    options = "agreement"
+
+  [postsurvey.GTS.questions.4]
+    question = "大多数人对别人很可信。"
+    question_type = "likert"
+    options = "agreement"
+
+  [postsurvey.GTS.questions.5]
+    question = "我很可信。"
+    question_type = "likert"
+    options = "agreement"
+
+  [postsurvey.GTS.questions.6]
+    question = "倘得到其他人的信任，大多数人的反应即友善。"
+    question_type = "likert"
+    options = "agreement"
+
+[postsurvey.NMLS_FC]
+  description = "除非另有注明，如下所示的词汇“媒体”指当前数字技术平台，包括但不限于网站，在线论坛，社交媒体，视频共享网站及能够随便共享任何数字内容之数字世界。务请对于每个陈述指定您如何估计自己的了解与才能。"
+
+  [postsurvey.NMLS_FC.questions.FC_1]
+    question = "我知道如何应用此等搜索工具从媒体得到所需要的信息。"
+    question_type = "likert"
+    options = "agreement"
+
+  [postsurvey.NMLS_FC.questions.FC_2]
+    question = "我了解媒体中的变化。"
+    question_type = "likert"
+    options = "agreement"
+
+  [postsurvey.NMLS_FC.questions.FC_3]
+    question = "我使用不同的媒体获取信息。"
+    question_type = "likert"
+    options = "agreement"
+
+  [postsurvey.NMLS_FC.questions.FC_4]
+    question = "我认出媒体中显性与隐性的信息。"
+    question_type = "likert"
+    options = "agreement"
+
+  [postsurvey.NMLS_FC.questions.FC_5]
+    question = "我认出媒体包含暴力或欺凌的内容。"
+    question_type = "likert"
+    options = "agreement"
+
+  [postsurvey.NMLS_FC.questions.FC_6]
+    question = "我明白媒体内容的政治，经济及社会方面。"
+    question_type = "likert"
+    options = "agreement"
+
+  [postsurvey.NMLS_FC.questions.FC_7]
+    question = "我能够发现到在媒体中所持有的观点与心思。"
+    question_type = "likert"
+    options = "agreement"
+
+
+[postsurvey.NMLS_CC]
+  description = "除非另有注明，如下所示的词汇“媒体”指当前数字技术平台，包括但不限于网站，在线论坛，社交媒体，视频共享网站及能够随便共享任何数字内容之数字世界。务请对于每个陈述指定您如何估计自己的了解与才能。"
+
+  [postsurvey.NMLS_CC.questions.CC_1]
+    question = "我分清媒体不同的作用（沟通，娱乐等）。"
+    question_type = "likert"
+    options = "agreement"
+
+  [postsurvey.NMLS_CC.questions.CC_2]
+    question = "我能够确定媒体内容是否包含商业信息。"
+    question_type = "likert"
+    options = "agreement"
+
+  [postsurvey.NMLS_CC.questions.CC_3]
+    question = "我能够在制作人，品类，用途等的基本上分类媒体信息。"
+    question_type = "likert"
+    options = "agreement"
+
+  [postsurvey.NMLS_CC.questions.CC_4]
+    question = "我将不同媒体中的信息比较起来。"
+    question_type = "likert"
+    options = "agreement"
+
+  [postsurvey.NMLS_CC.questions.CC_5]
+    question = "我将媒体中的信息与自己的想法结合在一起。"
+    question_type = "likert"
+    options = "agreement"
+
+  [postsurvey.NMLS_CC.questions.CC_6]
+    question = "我为决定使用何许媒体内容，而考虑无关的评价。"
+    question_type = "likert"
+    options = "agreement"
+
+  [postsurvey.NMLS_CC.questions.CC_7]
+    question = "我关于媒体信息的真实性做决定。"
+    question_type = "likert"
+    options = "agreement"
+
+  [postsurvey.NMLS_CC.questions.CC_8]
+    question = "我分析媒体内容对于个人的生正面与负面的影响。"
+    question_type = "likert"
+    options = "agreement"
+
+  [postsurvey.NMLS_CC.questions.CC_9]
+    question = "我在法律与伦理方面（版权，人权等）评价媒体。"
+    question_type = "likert"
+    options = "agreement"
+
+  [postsurvey.NMLS_CC.questions.CC_10]
+    question = "我在可信性，可靠性，客观性及时效性上评价媒体。"
+    question_type = "likert"
+    options = "agreement"
+
+  [postsurvey.NMLS_CC.questions.CC_11]
+    question = "我保护自己避免由媒体内容造成的风险与效果。"
+    question_type = "likert"
+    options = "agreement"
+
+[postsurvey.NMLS_FP]
+  description = "除非另有注明，如下所示的词汇“媒体”指当前数字技术平台，包括但不限于网站，在线论坛，社交媒体，视频共享网站及能够随便共享任何数字内容之数字世界。务请对于每个陈述指定您如何估计自己的了解与才能。"
+
+  [postsurvey.NMLS_FP.questions.FP_1]
+    question = "我为消费媒体内容，而创建用户帐户及用户个人资料。"
+    question_type = "likert"
+    options = "agreement"
+
+  [postsurvey.NMLS_FP.questions.FP_2]
+    question = "我使用对于媒体内容之发展（即图片，视频等）需要的硬件。"
+    question_type = "likert"
+    options = "agreement"
+
+  [postsurvey.NMLS_FP.questions.FP_3]
+    question = "我使用对于媒体内容之发展（即图片，视频等）需要的软件。"
+    question_type = "likert"
+    options = "agreement"
+
+  [postsurvey.NMLS_FP.questions.FP_4]
+    question = "我在媒体或媒体内容上使用基本工具（即按钮，超链接，档案转送等）。"
+    question_type = "likert"
+    options = "agreement"
+
+  [postsurvey.NMLS_FP.questions.FP_5]
+    question = "我线上共享数字媒体内容与信息。"
+    question_type = "likert"
+    options = "agreement"
+
+  [postsurvey.NMLS_FP.questions.FP_6]
+    question = "我写作关于别人所共享的媒体内容的帖子或评论。"
+    question_type = "likert"
+    options = "agreement"
+
+  [postsurvey.NMLS_FP.questions.FP_7]
+    question = "我在自己兴趣爱好的基本上评价或查对媒体的内容。"
+    question_type = "likert"
+    options = "agreement"
+
+[postsurvey.NMLS_CP]
+  description = "除非另有注明，如下所示的词汇“媒体”指当前数字技术平台，包括但不限于网站，在线论坛，社交媒体，视频共享网站及能够随便共享任何数字内容之数字世界。务请对于每个陈述指定您如何估计自己的了解与才能。"
+
+  [postsurvey.NMLS_CP.questions.CP_1]
+    question = "我通过社交媒体的使用对其他人的想法有影响。"
+    question_type = "likert"
+    options = "agreement"
+
+  [postsurvey.NMLS_CP.questions.CP_2]
+    question = "我通过从不同的视角（社会，经济，思想等）阐明最新的主题，为媒体内容做出贡献。"
+    question_type = "likert"
+    options = "agreement"
+
+  [postsurvey.NMLS_CP.questions.CP_3]
+    question = "我为实现共同目标，而与不同的媒体使用者协力沟通。"
+    question_type = "likert"
+    options = "agreement"
+
+  [postsurvey.NMLS_CP.questions.CP_4]
+    question = "我创作合于自己特质的线上身份。"
+    question_type = "likert"
+    options = "agreement"
+
+  [postsurvey.NMLS_CP.questions.CP_5]
+    question = "我为通知或影响别人，而使用媒体（如脸书，新闻网站等）讨论，写评论。"
+    question_type = "likert"
+    options = "agreement"
+
+  [postsurvey.NMLS_CP.questions.CP_6]
+    question = "我创作显示关于某种主题的批判性审查之媒体内容。"
+    question_type = "likert"
+    options = "agreement"
+
+  [postsurvey.NMLS_CP.questions.CP_7]
+    question = "我创作相反或可选的媒体内容。"
+    question_type = "likert"
+    options = "agreement"
+
+  [postsurvey.NMLS_CP.questions.CP_8]
+    question = "我创作符合遵守不同的思想与人们私生活的媒体内容。"
+    question_type = "likert"
+    options = "agreement"
+
+  [postsurvey.NMLS_CP.questions.CP_9]
+    question = "我创作符合遵守法律伦理规则的媒体内容。"
+    question_type = "likert"
+    options = "agreement"
+
+  [postsurvey.NMLS_CP.questions.CP_10]
+    question = "我设计自己的视觉与文本媒体内容（视频片段，网站等）。"
+    question_type = "likert"
+    options = "agreement"
+
+[postsurvey.Ingelhardt]
+  description = "即使在政治上，鱼与熊掌不可兼得。此列表上可见能够追求的政治目标。"
+
+  [postsurvey.Ingelhardt.questions.1]
+    question = "如须选此不同目标之一，您即认为何目标最要紧？"
+    question_type = "options"
+    options = ["保持国内（本国）的和平与秩序。", "公民对于政府的决定更能够施加影响。", "抗争价格上涨。", "保护言论自由的权力。"]
+
+  [postsurvey.Ingelhardt.questions.2]
+    question = "您认为何目标为第二个最要紧的目标？"
+    question_type = "options"
+    options = ["保持国内（本国）的和平与秩序。", "公民对于政府的决定更能够施加影响。", "抗争价格上涨。", "保护言论自由的权力。"]
+
+[postsurvey.Audio]
+  description = "为此问题，我们想知道您如何收听此音频文件。"
+
+  [postsurvey.Audio.conditional]
+    conditional_on = "SESS_MEDIA_CHOOSEN"
+    condition = "audio"
+
+
+  [postsurvey.Audio.questions.1]
+    question = "您以何种方式收听此音频文件？"
+    question_type = "options"
+    options = ["以耳机", "以手机扬声器", "以电脑扬声器", "以外置扬声器", "以上述以外的音频设备"]
+
+[config]
+  [config.consider_as_one]
+    presurvey = [["deepfakes_1", "deepfakes_2", "deepfakes_3"]]
+    postsurvey = [["NMLS_FC", "NMLS_CC", "NMLS_FP", "NMLS_CP"]]
+
+
+[likert_scales]
+
+  [likert_scales.difficult]
+    scale_type = "centered"
+    options = ["非常难", "难", "中性", "容易", "非常容易"]
+  [likert_scales.likelihood]
+    scale_type = "centered"
+    options = ["大不可能", "不太可能", "中性", "很可能", "很大可能"]
+
+  [likert_scales.agreement]
+    scale_type = "centered"
+    options = ["我完全不同意", "我不同意", "我既不同意又不反对", "我同意", "我完全同意"]
+
+  [likert_scales.agreement-7]
+    scale_type = "centered"
+    options = ["我完全不同意", "我不同意", "我不太同意", "我既不同意又不反对", "我比较同意", "我同意", "我完全同意"]
+
+  [likert_scales.true-4]
+    scale_type = "ascending"
+    options = ["不对", "不太正确", "差不多", "完全正确"]
+
+  [likert_scales.knowledge]
+    scale_type = "none"
+    options = [
+      "我从未听过此词汇。",
+      "我听过此词汇，但我不知有何意思。",
+      "我知道此词汇的意思，但我不知其如何工作。",
+      "我知道其如何工作。",
+      "我非常清楚其如何工作。",
+    ]
+
+[experiment_scales]
+  options = [
+    "一定非为人所生成的数据",
+    "很大可能非为人所生成的数据",
+    "可能非为人所生成的数据",
+    "不确定",
+    "可能为人所生成的数据",
+    "很大可能为人所生成的数据",
+    "一定为人所生成的数据",
+  ]

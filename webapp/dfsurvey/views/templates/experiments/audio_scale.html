@@ -1,0 +1,42 @@
+{% extends 'base_scale.html' %}
+
+{% block title %}
+{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+{% block question %}
+{% if language == "english" %}
+This audio was recorded by a human:
+{% elif language == "german" %}
+Diese Audiodatei wurde von einem Menschen aufgenommen:
+{% elif language == "chinese" %}
+此音频文件中是人说话。
+{% endif %}
+{% endblock %}
+
+{% block media %}
+<div id="media" class="row">
+    <div class="col">
+        <figure class="d-flex justify-content-center">
+            <audio id="audioContainer" controls src="{{ url_for('static', filename=media) }}">
+                Your browser does not support the
+                <code>audio</code> element.
+            </audio>
+        </figure>
+    </div>
+</div>
+
+<script>
+    const audio = document.getElementById("audioContainer");
+
+    audio.onended = (event) => {
+        console.log("Played!");
+
+        const counter = document.getElementById("clickCounter");
+        const current = parseInt(counter.textContent);
+        counter.innerHTML = current + 1;
+    };
+</script>
+{% endblock %}

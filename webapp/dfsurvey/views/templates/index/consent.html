@@ -1,0 +1,234 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{% if language == "english" %}
+Welcome
+{% elif language == "german" %}
+Wilkommen
+{% elif language == "chinese" %}
+欢迎
+{% endif %}
+{% endblock %}
+
+{% block header %}
+{% if language == "english" %}
+Welcome
+{% elif language == "german" %}
+Wilkommen
+{% elif language == "chinese" %}
+欢迎
+{% endif %}
+{% endblock %}
+
+{% block body %}
+<div id="introduction_container">
+    <div id="introduction_text">
+        <p>
+            {% if language == "english" %}
+            Increasing digitalization leads to an increasing amount of data, which raises questions of authenticity.
+            In this survey, we want to study your perception on different human and computer generated data types, like
+            pictures, texts, and audio files.
+            You can provide a valuable contribution with your participation.
+            {% elif language == "german" %}
+            Die zunehmende Digitalisierung führt zu immer größeren Datenmengen, deren Authentizität geprüft werden muss.
+            In dieser Umfrage möchten wir Ihre Wahrnehmung verschiedener von Menschen sowie von Computern generierter
+            Daten, wie Bilder, Texte und Audiodateien, abfragen. Mit Ihrer Teilnahme können Sie einen wertvollen Beitrag
+            zu unserer Forschung leisten.
+            {% elif language == "chinese" %}
+            随着日益增长的数字化，须查对之数据量亦益发增加。本次调查目的为探究您如何感知若干为人与电脑所生成之图片，文本及音频文件等数据。通过参与本次调查，您可以为我们研究作出很有益的贡献。
+            {% endif %}
+        </p>
+
+        <button id="continue" type="button" class="btn btn-outline-secondary">
+            {% if language == "english" %}
+            Continue
+            {% elif language == "german" %}
+            Weiter
+            {% elif language == "chinese" %}
+            继续
+            {% endif %}
+        </button>
+    </div>
+</div>
+
+<div id="disclaimer_container" class="d-none">
+    <div id="disclaimer_text">
+        <p>
+        <p>
+            <b>
+                {% if language == "english" %}
+                Participation requirements
+                {% elif language == "german" %}
+                Teilnahmebedingungen
+                {% elif language == "chinese" %}
+                参与条件
+                {% endif %}
+            </b><br>
+
+            {% if language == "english" %}
+            Participants who are at least <b>18 years</b> old are eligible to participate.
+            You also need headphones or a speaker to listen to audio files. Please get headphones or speakers ready
+            before proceeding with the study.
+            {% elif language == "german" %}
+            Um an dieser Studie teilzunehmen, sollten Sie mindestens <b>18 Jahre</b> alt sein.
+            Sie benötigen außerdem einen Kopfhörer oder einen Lautsprecher, um die Audiodateien anhören zu können. Bitte
+            legen Sie sich Kopfhörer oder Lautsprecher bereit, bevor Sie mit der Studie fortfahren.
+            {% elif language == "chinese" %}
+            为参与本次调查，您必须年满18岁以上。为能够收听音频文件，您此外需要耳机或扩音机。继续回答调查的问题先，务请将耳机或扩音机准备好。
+            {% endif %}
+        </p>
+        <p>
+            <b>
+                {% if language == "english" %}
+                Duration
+                {% elif language == "german" %}
+                Dauer
+                {% elif language == "chinese" %}
+                调查时间
+                {% endif %}
+            </b><br>
+            {% if language == "english" %}
+            Participation in the study is expected to take 20 minutes. You are not subject to any anticipated risks by
+            participating.
+            {% elif language == "german" %}
+            Die Teilnahme an dieser Studie wird in etwa 20 Minuten dauern. Mit der Teilnahme an dieser Studie sind
+            keinerlei Risiken verbunden.
+            {% elif language == "chinese" %}
+            本次调查需要大约二十分钟。参与无有任何风险。
+            {% endif %}
+        </p>
+
+        <p>
+            {% if language == "english" %}
+            Please answer the survey as honestly as possible. You may withdraw participation at any time during the
+            study. If you do, your data will be deleted.
+            {% elif language == "german" %}
+            Bitte beantworten Sie den Fragebogen so ehrlich wie möglich. Sie können die Studie jederzeit abbrechen. Wenn
+            Sie dies tun, werden Ihre Daten gelöscht.
+            {% elif language == "chinese" %}
+            务请尽可能诚实地回答问卷的问题。您可以任何时候退出调查。若然，您的数据将被删除。
+            {% endif %}
+        </p>
+
+        <p>
+            <b>
+                {% if language == "english" %}
+                Data Privacy
+                {% elif language == "german" %}
+                Datenschutz
+                {% elif language == "chinese" %}
+                数据保护
+                {% endif %}
+            </b><br>
+            {% if language == "english" %}
+            Your responses to this study are stored in anonymized form in a way which will not reveal your identity. The
+            anonymized dataset will later be published publicly. For questions or more
+            information, please contact the Panel Support.
+            {% elif language == "german" %}
+            Ihre Antworten werden in anonymisierter Form gespeichert, so dass Sie nicht identifiziert werden können. Der
+            anonymisierte Datensatz wird später veröffentlicht. Indem Sie diesen Fragebogen ausfüllen, stimmen Sie der
+            Datenerhebung zum Zwecke der Durchführung dieser Studie zu. Für Fragen und weiterführenden Informationen
+            kontaktieren Sie bitte den Panel Support.
+            {% elif language == "chinese" %}
+            您的信息将以匿名的形式进行收集。如此，无法暴露您的身份。后来，匿名数据将公布。以回答此问卷的问题，您即同意为进行本次调查而进行的数据采集。如有问题或需要更多的信息，请联系支持人员。 
+            {% endif %}
+
+        </p>
+        <p>
+            <b>
+                {% if language == "english" %}
+                Right to Ask Questions and Contact Information
+                {% elif language == "german" %}
+                Auskunftsrecht und Kontaktinformationen
+                {% elif language == "chinese" %}
+                知情权与联络信息
+                {% endif %}
+            </b><br>
+            {% if language == "english" %}
+            If you have any questions, comments, or concerns about the study, either before, during, or after
+            participation, please get in touch with the Panel Support.
+            Also, contact the Panel Supporr with any requests regarding your privacy rights, including objection
+            to processing, deletion of data, and access to the data stored about you.
+            Please note that we might require additional information to re-identify the data set that contains your
+            information.
+            {% elif language == "german" %}
+            Wenn Sie vor, während oder nach der Teilnahme an der Studie Fragen, Kommentare oder Bedenken haben, wenden
+            Sie sich bitte an den Panel Support.
+            Wenden Sie sich auch an den Panel Support, wenn Sie Fragen zu Ihren Datenschutzrechten haben, dies schließt
+            den Widerspruch gegen die Verarbeitung Ihrer Daten, die Löschung von Daten und den Zugang zu den über Sie
+            gespeicherten Daten ein.
+            Bitte beachten Sie, dass wir möglicherweise zusätzliche Informationen benötigen, um den Datensatz, der Ihre
+            Informationen enthält, erneut zu identifizieren.
+            {% elif language == "chinese" %}
+            如参与本次调查之前，之后或正在参与时有任何问题，批评或疑问，请联系支持人员。如若有关于数据保护权利的问题，亦联系支持人员。此包括对于数据处理的异议，数据的删除及存取与您有关已保存之数据。务请注意为辨认包含您的信息之数据而需要补充信息的可能。
+            {% endif %}
+
+        </p>
+
+
+    </div>
+
+    <div id="consentRadio">
+        <div class="form-check mb-3">
+            <input class="form-check-input" type="radio" name="consentRadio" id="consentCheckboxAccept"
+                data-decision="accept">
+            <label class="form-check-label" for="consentCheckboxAccept">
+                {% if language == "english" %}
+                I accept these conditions.
+                {% elif language == "german" %}
+                Ich akzeptiere die genannten Teilnahmebedingungen.
+                {% elif language == "chinese" %}
+                我接受上述的参与条件。
+                {% endif %}
+            </label>
+        </div>
+        <div class="form-check mb-3">
+            <input class="form-check-input" type="radio" name="consentRadio" id="consentCheckboxReject"
+                data-decision="reject">
+            <label class="form-check-label" for="consentCheckboxReject">
+                {% if language == "english" %}
+                I reject these conditions.
+                {% elif language == "german" %}
+                Ich widerspreche den Teilnahmebedingungen.
+                {% elif language == "chinese" %}
+                我反对参与条件，
+                {% endif %}
+            </label>
+        </div>
+    </div>
+
+    <div class="alert alert-danger d-flex align-items-center d-none" role="alert" id="errorConditions">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+            class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img"
+            aria-label="Warning:">
+            <path
+                d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+        </svg>
+        <div>
+            {% if language == "english" %}
+            You must accept these conditions to continue!
+            {% elif language == "german" %}
+            Sie müssen die Bedingungen akzeptieren um fortzufahren!
+            {% elif language == "chinese" %}
+            您须接受条件以便继续。
+            {% endif %}
+        </div>
+    </div>
+
+    <div>
+        <button id="accept_conditions" type="button" class="btn btn-outline-success">
+            {% if language == "english" %}
+            Continue
+            {% elif language == "german" %}
+            Weiter
+            {% elif language == "chinese" %}
+            继续
+            {% endif %}
+        </button>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='scripts/consent.js') }}"></script>
+{% endblock %}

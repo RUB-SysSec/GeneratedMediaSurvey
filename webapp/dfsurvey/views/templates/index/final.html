@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{% if language == "english" %}
+Thank You!
+{% elif language == "german" %}
+Danke!
+{% elif language == "chinese" %}
+谢谢！
+{% endif %}
+{% endblock %}
+
+{% block header %}
+{% if language == "english" %}
+Thank You!
+{% elif language == "german" %}
+Danke!
+{% elif language == "chinese" %}
+谢谢！
+{% endif %}
+{% endblock %}
+
+
+{% block body %}
+<div id="thank_you" class="col">
+    <div class="mb-3">
+        <p>
+            {% if language == "english" %}
+            Thank you for participating in this survey!
+            {% elif language == "german" %}
+            Vielen Dank für Ihre Teilnahme an dieser Studie!
+            {% elif language == "chinese" %}
+            感谢您参与此项调查!
+            {% endif %}
+
+
+        <div>
+            <a id="finish" type="button" class="btn btn-outline-success" href={{finish_url}}>
+                Finish
+            </a>
+        </div>
+        </p>
+    </div>
+</div>
+{% endblock %}

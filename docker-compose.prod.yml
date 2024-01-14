@@ -1,0 +1,117 @@
+version: "3.9"
+services:
+  db:
+    extends:
+      file: common-services.yml
+      service: postgre
+    env_file:
+      - prod.env
+      - secrets.env
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  likert-en:
+    hostname: likert-en
+    extends:
+      file: common-services.yml
+      service: webapp
+    env_file:
+      - prod.env
+      - secrets.env
+    environment:
+      - SURVEY_LANG=english
+      - SECRET_KEY=d7308657535ce4dd53910d649ecec6ce5ec0a2a9
+      - SKIP_QUOTA=1
+    restart: always
+    links:
+      - db
+    depends_on:
+      - db
+
+  likert-de:
+    hostname: likert-de
+    extends:
+      file: common-services.yml
+      service: webapp
+    env_file:
+      - prod.env
+      - secrets.env
+    environment:
+      - SURVEY_LANG=german
+      - SECRET_KEY=8939395dd8c5cfc60ea2c5773d81dc4458b28cee
+    restart: always
+    links:
+      - db
+    depends_on:
+      - db
+
+  likert-cn:
+    hostname: likert-cn
+    extends:
+      file: common-services.yml
+      service: webapp
+    env_file:
+      - prod.env
+      - secrets.env
+    environment:
+      - SURVEY_LANG=chinese
+      - SECRET_KEY=bd2228dd6df6c358c90432cc50ef5bbba52ef5ea
+    restart: always
+    links:
+      - db
+    depends_on:
+      - db
+
+  stats-service:
+    hostname: stats-service
+    extends:
+      file: common-services.yml
+      service: webapp
+    ports:
+      - 127.0.0.1:8080:8080
+    env_file:
+      - prod.env
+      - secrets.env
+    environment:
+      - SECRET_KEY=1a184b98573131bec56dbda2f7b340b566137733
+      - EXPOSE_UNSAFE=1
+    restart: always
+    links:
+      - db
+    depends_on:
+      - db
+      - likert-en
+      - likert-de
+      - likert-cn
+
+  nginx:
+    image: nginx:1
+    restart: always
+    ports:
+      - 80:80
+      - 443:443
+    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+    volumes:
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./webapp/dfsurvey/static/external:/www/data/static/external:ro
+      - ./webapp/dfsurvey/static/css:/www/data/static/css:ro
+      - ./webapp/dfsurvey/static/scripts:/www/data/static/scripts:ro
+      - ./webapp/data:/www/data/static/data:ro
+      - ./webapp/image_data:/www/data/static/image_data:ro
+    depends_on:
+      - likert-en
+      - likert-de
+      - likert-cn
+      - certbot
+
+  certbot:
+    image: certbot/certbot:latest
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+    volumes:
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+
+volumes:
+  db_data: {}
