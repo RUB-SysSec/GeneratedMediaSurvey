@@ -97,3 +97,8 @@ Thus, it requires some configuration upfront:
 - Fill in your domain name in [nginx/nginx.conf](nginx/nginx.conf) under server name. The setup will automatically generate a valid ssl certificate using [certbot](https://certbot.eff.org/).
 - Complete the [prod.env](prod.env) file with your desired configuration.
 - Enter your domain and mail adress in [init-letsencrypt.sh](init-letsencrypt.sh).
+
+
+# Analysis
+
+The notebooks for analysis can be found in the `analysis` folder. The data is available on [osf](https://osf.io/uxzyr/).
